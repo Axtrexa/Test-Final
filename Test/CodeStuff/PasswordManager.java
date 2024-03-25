@@ -8,11 +8,13 @@ public class PasswordManager {
         StringBuilder randomPass = new StringBuilder();
         Random gen = new Random();
         for(int i = 0; i < length; i++){
-             i = gen.nextInt(characters.length());
-            randomPass.append(characters.charAt(i));
+             int index = gen.nextInt(characters.length());
+            randomPass.append(characters.charAt(index));
 
         }
         return randomPass.toString();
+
+        
     }
     
     
