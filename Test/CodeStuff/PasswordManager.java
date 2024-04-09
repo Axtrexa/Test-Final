@@ -12,6 +12,8 @@ public class PasswordManager {
 
         }
         return randomPass.toString();
+
+        
     }
     
     public boolean verifyPassword(String password)
