@@ -22,7 +22,7 @@ try {
 } finally {
    try {writer.close();} catch (Exception ex) {/*ignore*/}
 }
-File f = new File("C:/Users/000060552/Documents/GitHub/Test-Final/filename.txt");
+File f = new File("C:/Users/000060552.CODEDOJO/Documents/GitHub/Test-Final/filename.txt");
 if(f.exists() && !f.isDirectory()) { 
     System.out.println("Exists");
 }
