@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Astronaut {
     public String AstroName;
     public String Birthdate;
@@ -82,7 +80,7 @@ public class Astronaut {
     }
     //Set Astronaut's weight
     public void setAstroWeight(double AstroWeight){
-        this.AstroWeight = PayRate;
+        this.AstroWeight = AstroWeight;
     }
     // Set Astronaut's next to kin
     public void setNexttoKin(String NexttoKin){
