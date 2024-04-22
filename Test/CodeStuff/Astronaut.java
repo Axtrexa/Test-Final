@@ -1,14 +1,14 @@
 public class Astronaut {
-    public String AstroName;
+    private String AstroName;
     public String Birthdate;
-    public String SerialNum;
-    public String Address;
-    public String Email;
-    public String PhoneNum;
-    public double PayRate;
-    public double AstroWeight;
-    public String NexttoKin;
-    public String AstroStatus;
+    private String SerialNum;
+    private String Address;
+    private String Email;
+    private String PhoneNum;
+    private double PayRate;
+    private double AstroWeight;
+    private String NexttoKin;
+    private String AstroStatus;
 
     // Get Astronaut's name
     public String getAstroName(){
@@ -39,14 +39,14 @@ public class Astronaut {
         return PayRate;
     }
     // Get Astronaut's weight
-    public double getAstroWeigh(){
+    public double getAstroWeight(){
         return AstroWeight;
     }
     // Get Astronaut's next to kin
     public String getNexttoKin(){
         return NexttoKin;
     }
-    // Get Astronaut's marital status
+    // Get Astronaut's status
     public String getAstroStatus(){
         return AstroStatus;
     }
@@ -86,10 +86,9 @@ public class Astronaut {
     public void setNexttoKin(String NexttoKin){
         this.NexttoKin = NexttoKin;
     }
-    // Set Astronaut's marital status
+    // Set Astronaut's status
     public void setAstroStatus(String AstroStatus){
         this.AstroStatus = AstroStatus;
     }
-    }
-    
 }
+    

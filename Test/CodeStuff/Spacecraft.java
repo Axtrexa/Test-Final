@@ -11,7 +11,7 @@ public class Spacecraft {
         System.out.println("Please enter your choice from the following options:");
         selection = keyboard.nextInt();
 
-            while(selection < 1 || selection > 8){
+            while(selection < 1 || selection > 9){
                 System.out.println("Invalid selection. Please try again.");
                 selection = keyboard.nextInt();
                 keyboard.nextLine();
@@ -35,6 +35,34 @@ public class Spacecraft {
                     break;
                 case 4:
                     System.out.println("Please enter your email:");
+                    String Email = keyboard.nextLine();
+                    AstroInfo.setEmail(Email);
+                    break;
+                case 5:
+                    System.out.println("Please enter your phone number:");
+                    String PhoneNum = keyboard.nextLine();
+                    AstroInfo.setPhoneNum(PhoneNum);
+                    break;
+                case 6:
+                    System.out.println("Please enter your pay rate:");
+                    double PayRate = keyboard.nextDouble();
+                    AstroInfo.setPayRate(PayRate);
+                    break;
+                case 7:
+                    System.out.println("Please enter your weight in pounds:");
+                    double AstroWeight = keyboard.nextDouble();
+                    AstroInfo.setAstroWeight(AstroWeight);
+                    break;
+                case 8:
+                    System.out.println("Please enter your next of kin:");
+                    String NexttoKin = keyboard.nextLine();
+                    AstroInfo.setNexttoKin(NexttoKin);
+                    break;
+                case 9:
+                    System.out.println("Please enter your status:");
+                    String AstroStatus = keyboard.nextLine();
+                    AstroInfo.setAstroStatus(AstroStatus);
+                    break;
 
             }
 
@@ -47,8 +75,9 @@ public class Spacecraft {
         System.out.println("3. Edit Astronaut's Address");
         System.out.println("4. Edit Astronaut's Email");
         System.out.println("5. Edit Astronaut's Phone Number");
-        System.out.println("6. Edit Astronaut's Weight");
-        System.out.println("7. Edit Astronaut's Next of Kin");
-        System.out.println("8. Edit Astronaut's Status");
+        System.out.println("6. Edit Astronaut's PayRate");
+        System.out.println("7. Edit Astronaut's Weight");
+        System.out.println("8. Edit Astronaut's Next of Kin");
+        System.out.println("9. Edit Astronaut's Status");
     }
 }
