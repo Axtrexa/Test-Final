@@ -2,7 +2,7 @@ package Test.CodeStuff;
 import java.util.Random;
 public class PasswordManager {
     
-    public static String passwordGenerator(int length){
+    public static String serialNumGenerator(int length){
         String characters = "0123456789";
         StringBuilder randomPass = new StringBuilder();
         Random gen = new Random();
@@ -15,15 +15,3 @@ public class PasswordManager {
 
         
     }
-    
-    public boolean verifyPassword(String password)
-    {
-        if(this.password == password)
-        {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
-}

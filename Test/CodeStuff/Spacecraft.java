@@ -1,3 +1,4 @@
+package Test.CodeStuff;
 import java.util.Scanner;
 public class Spacecraft {
     public static void main(String[] args){
@@ -54,8 +55,12 @@ public class Spacecraft {
                     displayAstroInfo(AstroInfo);
                     break;
                 case 5:
-                    System.out.println("Please enter your phone number:");
+                    System.out.println("Please enter your phone number in the following format ((XXX)XXX-XXXX):");
                     String PhoneNum = keyboard.nextLine();
+                    while(!Astronaut.PhoneNumValidation(PhoneNum)){
+                        System.out.println("This number is invalid. Please try again in the following format ((XXX)XXX-XXXX):");
+                        PhoneNum = keyboard.nextLine();
+                    }
                     AstroInfo.setPhoneNum(PhoneNum);
                     System.out.println("-----------------------------");
                     displayAstroInfo(AstroInfo);

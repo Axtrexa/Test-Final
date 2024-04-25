@@ -1,3 +1,4 @@
+package Test.CodeStuff;
 public class Astronaut {
     private String AstroName;
     public String Birthdate;
@@ -89,6 +90,54 @@ public class Astronaut {
     // Set Astronaut's status
     public void setAstroStatus(String AstroStatus){
         this.AstroStatus = AstroStatus;
+    }
+
+    public static String serialNumGenerator(int length){
+        String characters = "0123456789";
+        StringBuilder randomSerial = new StringBuilder();
+        Random gen = new Random();
+        for(int i = 0; i < length; i++){
+             int index = gen.nextInt(characters.length());
+            randomSerial.append(characters.charAt(index));
+
+        }
+        return randomSerial.toString();
+    }
+
+    public static boolean PhoneNumValidation(String PhoneNum){
+        if(PhoneNum.length() != 13){
+            System.out.println("Invalid length");
+            return false;
+        }
+        for(int i = 0; i < PhoneNum.length(); i++){
+            switch(i){
+                case 0:
+                    if(PhoneNum.charAt(i) != '('){
+                        System.out.println("Missing '(' at position " + i);
+                        return false;
+                    }
+                    break;
+                case 4:
+                    if(PhoneNum.charAt(i) != ')'){
+                        System.out.println("Missing ')' at position " + i);
+                        return false;
+                    }
+                    break;
+                case 5:
+                case 9:
+                    if(PhoneNum.charAt(i) != '-'){
+                        System.out.println("Missing '-' at position " + i);
+                        return false;
+                    }
+                    break;
+                default:
+                    if(!Character.isDigit(PhoneNum.charAt(i))){
+                        System.out.println("Invalid character at position " + i);
+                        return false;
+                    }
+            }
+        }
+        return true;
     }
 }
     
