@@ -104,40 +104,127 @@ public class Astronaut {
         return randomSerial.toString();
     }
 
+    public static boolean NameValidation(String AstroName){
+        for(char name: AstroName.toCharArray()){
+            if(!Character.isLetter(name) && name != ' '){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean BirthdateValidation(String Birthdate){
+
+        int day;
+        int month;
+        int year;
+
+        if(Birthdate.length() != 10){
+            System.out.println("Invalid length!");
+            return false;
+        }
+
+        try{
+        day = Integer.parseInt(Birthdate.substring(0, 2));
+        month = Integer.parseInt(Birthdate.substring(3,5));
+        year = Integer.parseInt(Birthdate.substring(6));
+        } catch (NumberFormatException e){
+            return false;
+        }
+
+        boolean isValid = true;
+        if(day < 1 || day > 31){
+            isValid = false;
+        }
+        if(month < 01 || month > 12){
+            isValid = false;
+        }
+        if(year < 1900 || year > 2024){
+            isValid = false;
+        }
+        for(int i = 0; i < Birthdate.length(); i++){
+            switch(i){
+                case 2:
+                case 5:
+                    if(Birthdate.charAt(i) != '/'){
+                        return false;
+                    }
+                    break;
+                default:
+                    if(!Character.isDigit(Birthdate.charAt(i))){
+                        return false;
+                    }
+            }
+        }
+        return isValid;
+    }
+
+    public static boolean AddressValidation(String Address){
+        for(int i = 0; i < Address.length(); i++){
+            char address = Address.charAt(i);
+            if(!Character.isLetter(address) && !Character.isDigit(address) && address != ' ' && address != '/'){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean EmailValidation(String Email){
+        int atCount = 0;
+        int dotCount = 0;
+
+        for(int i = 0; i < Email.length(); i ++){
+            char email = Email.charAt(i);
+            if(email == '@'){
+                atCount ++;
+            }
+            else if (email == '.'){
+                dotCount ++;
+            }
+            else if (!Character.isLetter(email) && !Character.isDigit(email) && email != '_' && email != '-'){
+                return false;
+            }
+        }
+        if(atCount != 1 || dotCount < 1){
+            return false;
+        }
+        return true;
+    }
+
     public static boolean PhoneNumValidation(String PhoneNum){
         if(PhoneNum.length() != 13){
-            System.out.println("Invalid length");
+            System.out.println("Invalid length!");
             return false;
         }
         for(int i = 0; i < PhoneNum.length(); i++){
             switch(i){
                 case 0:
                     if(PhoneNum.charAt(i) != '('){
-                        System.out.println("Missing '(' at position " + i);
+                        System.out.println("Missing '(' at position " + i + "!");
                         return false;
                     }
                     break;
                 case 4:
                     if(PhoneNum.charAt(i) != ')'){
-                        System.out.println("Missing ')' at position " + i);
+                        System.out.println("Missing ')' at position " + i + "!");
                         return false;
                     }
                     break;
-                case 5:
-                case 9:
+                case 8:
                     if(PhoneNum.charAt(i) != '-'){
-                        System.out.println("Missing '-' at position " + i);
+                        System.out.println("Missing '-' at position " + i + "!");
                         return false;
                     }
                     break;
                 default:
                     if(!Character.isDigit(PhoneNum.charAt(i))){
-                        System.out.println("Invalid character at position " + i);
+                        System.out.println("Invalid character(s)!");
                         return false;
                     }
             }
         }
         return true;
     }
+
 }
     
