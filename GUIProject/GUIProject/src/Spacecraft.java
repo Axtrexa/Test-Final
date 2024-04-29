@@ -1,12 +1,15 @@
-package Test.CodeStuff;
+
+import java.awt.event.ActionEvent;
 import java.util.Scanner;
+
 public class Spacecraft {
-    public static void main(String[] args){
+    public static void astroConsole(ActionEvent e){
         int selection;
 
         Scanner keyboard = new Scanner(System.in);
         Astronaut AstroInfo = new Astronaut();
-        System.out.println("Welcome aboard Astronaut!");
+        
+        System.out.println("Welcome User");
         System.out.println("ASTRONAUT INFO:");
         displayAstroInfo(AstroInfo);
         System.out.println("-----------------------------");

@@ -1,4 +1,4 @@
-package Test.CodeStuff;
+
 public class Astronaut {
     private String AstroName;
     public String Birthdate;
