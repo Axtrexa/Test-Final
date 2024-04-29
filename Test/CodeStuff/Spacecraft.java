@@ -140,6 +140,7 @@ public class Spacecraft {
 
                     if(confirmChoice == 'y' || confirmChoice == 'Y'){
                         System.out.println("Information has been confirmed. Proceeding to the next step");
+                        PreLaunchMenu(keyboard, AstroInfo);
                         break;
                     } else if (confirmChoice == 'n' || confirmChoice == 'N') {
                         displayAstroInfo(AstroInfo);
@@ -178,4 +179,17 @@ public class Spacecraft {
             System.out.println("Next of Kin: " + AstroInfo.getNexttoKin());
             System.out.println("Status: " + AstroInfo.getAstroStatus());
         }
+
+        public static void PreLaunchMenu(Scanner keyboard, Astronaut AstroInfo){
+            System.out.println("Welcome to the Launch Process menu!");
+            System.out.println(" Spacecraft Name: ");
+            System.out.println("Enter crew capacity: ")
+            int crewCapacity = keyboard.nextInt();
+            System.out.print("Enter fuel capacity (in liters): ");
+            double fuelCapacity = keyboard.nextDouble();
+        }
+
+        Spacecraft spacecraft = new Spacecraft(crewCapacity, fuelCapacity);
+
+        System.out.printf("Spacecraft '")
 }
