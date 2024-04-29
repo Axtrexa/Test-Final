@@ -90,8 +90,11 @@ public class Spacecraft {
                     break;
                 case 6:
                     System.out.println("Please enter your pay rate:");
-                    double PayRate = keyboard.nextDouble();
-                    keyboard.nextLine();
+                    String PayRate = keyboard.nextLine();
+                    while(!Astronaut.PayRateValidation(PayRate)){
+                        System.out.println("This is an invalid pay rate. Please try again in the following format ($X,XXX,XXX)");
+                        PayRate = keyboard.nextLine();
+                    }
                     AstroInfo.setPayRate(PayRate);
                     System.out.println("Astronaut's information has been changed!");
                     System.out.println("-----------------------------");

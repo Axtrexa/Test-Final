@@ -6,8 +6,8 @@ public class Astronaut {
     private String Address;
     private String Email;
     private String PhoneNum;
-    private double PayRate;
-    private double AstroWeight;
+    private String PayRate;
+    private String AstroWeight;
     private String NexttoKin;
     private String AstroStatus;
 
@@ -36,11 +36,11 @@ public class Astronaut {
         return PhoneNum;
     }
     // Get Astronaut's pay rate
-    public double getPayRate(){
+    public String getPayRate(){
         return PayRate;
     }
     // Get Astronaut's weight
-    public double getAstroWeight(){
+    public String getAstroWeight(){
         return AstroWeight;
     }
     // Get Astronaut's next to kin
@@ -76,11 +76,11 @@ public class Astronaut {
         this.PhoneNum = PhoneNum;
     }
     // Set Astronaut's pay rate
-    public void setPayRate(double PayRate){
+    public void setPayRate(String PayRate){
         this.PayRate = PayRate;
     }
     //Set Astronaut's weight
-    public void setAstroWeight(double AstroWeight){
+    public void setAstroWeight(String AstroWeight){
         this.AstroWeight = AstroWeight;
     }
     // Set Astronaut's next to kin
@@ -120,7 +120,6 @@ public class Astronaut {
         int year;
 
         if(Birthdate.length() != 10){
-            System.out.println("Invalid length!");
             return false;
         }
 
@@ -173,6 +172,10 @@ public class Astronaut {
         int atCount = 0;
         int dotCount = 0;
 
+        if(Email.length() <= 10){
+            return false;
+        }
+
         for(int i = 0; i < Email.length(); i ++){
             char email = Email.charAt(i);
             if(email == '@'){
@@ -193,32 +196,27 @@ public class Astronaut {
 
     public static boolean PhoneNumValidation(String PhoneNum){
         if(PhoneNum.length() != 13){
-            System.out.println("Invalid length!");
             return false;
         }
         for(int i = 0; i < PhoneNum.length(); i++){
             switch(i){
                 case 0:
                     if(PhoneNum.charAt(i) != '('){
-                        System.out.println("Missing '(' at position " + i + "!");
                         return false;
                     }
                     break;
                 case 4:
                     if(PhoneNum.charAt(i) != ')'){
-                        System.out.println("Missing ')' at position " + i + "!");
                         return false;
                     }
                     break;
                 case 8:
                     if(PhoneNum.charAt(i) != '-'){
-                        System.out.println("Missing '-' at position " + i + "!");
                         return false;
                     }
                     break;
                 default:
                     if(!Character.isDigit(PhoneNum.charAt(i))){
-                        System.out.println("Invalid character(s)!");
                         return false;
                     }
             }
@@ -226,5 +224,18 @@ public class Astronaut {
         return true;
     }
 
+    public static boolean PayRateValidation(String PayRate){
+    }
+
+    public static boolean WeightValidation(String AstroWeight){
+        if(input.isEmpty()){
+            return false;
+        }
+        
+            
+
+        }
+    }
 }
+
     
