@@ -1,13 +1,21 @@
 package Test.CodeStuff;
 public class PreLaunch {
-    private String craftName;
+    private static int missionNum = 0;
     private int crewCapacity;
     private double fuelCapacity;
     private int currentCrew;
     private double currentFuel;
 
-    public PreLaunch(String craftName, int crewCapacity, double fuelCapacity){
-        this.craftName = craftName;
+    // Mission # that increases per launch
+    public static void incrementMissionNum(){
+        missionNum++;
+    }
+
+    public static int getMissionNum(){
+        return missionNum;
+    }
+
+    public PreLaunch(int crewCapacity, double fuelCapacity){
         this.crewCapacity = crewCapacity;
         this.fuelCapacity = fuelCapacity;
 

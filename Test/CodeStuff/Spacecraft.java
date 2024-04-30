@@ -1,6 +1,6 @@
 package Test.CodeStuff;
 import java.util.Scanner;
-public class Spacecraft {
+public class Spacecraft{
     public static void main(String[] args){
         int selection;
 
@@ -181,15 +181,16 @@ public class Spacecraft {
         }
 
         public static void PreLaunchMenu(Scanner keyboard, Astronaut AstroInfo){
+            PreLaunch.incrementMissionNum();
+            int currentMissionNum = PreLaunch.getMissionNum();
+
             System.out.println("Welcome to the Launch Process menu!");
-            System.out.println(" Spacecraft Name: ");
-            System.out.println("Enter crew capacity: ")
+            String craftName = "Astraeus" + String.format("%02d", currentMissionNum);
+            System.out.println(" Spacecraft Name: " + craftName);
+            System.out.println("Enter crew capacity: ");
             int crewCapacity = keyboard.nextInt();
             System.out.print("Enter fuel capacity (in liters): ");
             double fuelCapacity = keyboard.nextDouble();
         }
-
-        Spacecraft spacecraft = new Spacecraft(crewCapacity, fuelCapacity);
-
-        System.out.printf("Spacecraft '")
-}
+        //Spacecraft spacecraft = new Spacecraft(crewCapacity, fuelCapacity);
+    }
