@@ -37,7 +37,7 @@ public class PreLaunch {
             currentFuel = Math.min(currentFuel + amount, fuelCapacity);
         }
 
-        public void launch(String destination){
+        public void launch(String craftName, String destination){
             if(currentCrew == crewCapacity && currentFuel == fuelCapacity){
                 System.out.printf("Spacecraft '%s' successfully launched!", craftName);
                 currentFuel = 0.0;

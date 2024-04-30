@@ -140,6 +140,7 @@ public class Spacecraft{
 
                     if(confirmChoice == 'y' || confirmChoice == 'Y'){
                         System.out.println("Information has been confirmed. Proceeding to the next step");
+                        System.out.println("-----------------------------");
                         PreLaunchMenu(keyboard, AstroInfo);
                         break;
                     } else if (confirmChoice == 'n' || confirmChoice == 'N') {
@@ -180,17 +181,18 @@ public class Spacecraft{
             System.out.println("Status: " + AstroInfo.getAstroStatus());
         }
 
-        public static void PreLaunchMenu(Scanner keyboard, Astronaut AstroInfo){
-            PreLaunch.incrementMissionNum();
-            int currentMissionNum = PreLaunch.getMissionNum();
+    public static void PreLaunchMenu(Scanner keyboard, Astronaut AstroInfo){
+        PreLaunch.incrementMissionNum();
+        int currentMissionNum = PreLaunch.getMissionNum();
 
             System.out.println("Welcome to the Launch Process menu!");
-            String craftName = "Astraeus" + String.format("%02d", currentMissionNum);
+            String craftName = "Astraeus " + String.format("%02d", currentMissionNum);
             System.out.println(" Spacecraft Name: " + craftName);
             System.out.println("Enter crew capacity: ");
             int crewCapacity = keyboard.nextInt();
             System.out.print("Enter fuel capacity (in liters): ");
             double fuelCapacity = keyboard.nextDouble();
-        }
-        //Spacecraft spacecraft = new Spacecraft(crewCapacity, fuelCapacity);
+
+            PreLaunch craft  = new PreLaunch(crewCapacity, fuelCapacity);
+    }
     }

@@ -225,7 +225,7 @@ public class Astronaut {
     }
 
     public static boolean PayRateValidation(String PayRate){
-        
+
     }
 
     public static boolean WeightValidation(String AstroWeight){
