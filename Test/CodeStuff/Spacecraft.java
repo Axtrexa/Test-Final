@@ -39,6 +39,7 @@ public class Spacecraft{
                     System.out.println("Astronaut's information has been changed!");
                     System.out.println("-----------------------------");
                     displayAstroInfo(AstroInfo);
+                    System.out.println("-----------------------------");
                     break;
                 case 2:
                     System.out.println("Please enter your birthdate (dd/mm/yyyy):");
@@ -51,6 +52,7 @@ public class Spacecraft{
                     System.out.println("Astronaut's information has been changed!");
                     System.out.println("-----------------------------");
                     displayAstroInfo(AstroInfo);
+                    System.out.println("-----------------------------");
                     break;
                 case 3:
                     System.out.println("Please enter your address:");
@@ -63,6 +65,7 @@ public class Spacecraft{
                     System.out.println("Astronaut's information has been changed!");
                     System.out.println("-----------------------------");
                     displayAstroInfo(AstroInfo);
+                    System.out.println("-----------------------------");
                     break;
                 case 4:
                     System.out.println("Please enter your email:");
@@ -75,6 +78,7 @@ public class Spacecraft{
                     System.out.println("Astronaut's information has been changed!");
                     System.out.println("-----------------------------");
                     displayAstroInfo(AstroInfo);
+                    System.out.println("-----------------------------");
                     break;
                 case 5:
                     System.out.println("Please enter your phone number in the following format ((XXX)XXX-XXXX):");
@@ -87,26 +91,33 @@ public class Spacecraft{
                     System.out.println("Astronaut's information has been changed!");
                     System.out.println("-----------------------------");
                     displayAstroInfo(AstroInfo);
+                    System.out.println("-----------------------------");
                     break;
                 case 6:
-                    System.out.println("Please enter your pay rate:");
+                    System.out.println("Please enter your pay rate in the following format ($X,XXX.XX):");
                     String PayRate = keyboard.nextLine();
                     while(!Astronaut.PayRateValidation(PayRate)){
-                        System.out.println("This is an invalid pay rate. Please try again in the following format ($X,XXX,XXX):");
+                        System.out.println("This is an invalid pay rate. Please try again in the following format ($X,XXXX.XX):");
                         PayRate = keyboard.nextLine();
                     }
                     AstroInfo.setPayRate(PayRate);
                     System.out.println("Astronaut's information has been changed!");
                     System.out.println("-----------------------------");
                     displayAstroInfo(AstroInfo);
+                    System.out.println("-----------------------------");
                     break;
                 case 7:
                     System.out.println("Please enter your weight in pounds:");
                     String AstroWeight = keyboard.nextLine();
+                    while(!Astronaut.WeightValidation(AstroWeight)){
+                        System.out.println("This is an invalid weight. Please try again.");
+                        AstroWeight = keyboard.nextLine();
+                    }
                     AstroInfo.setAstroWeight(AstroWeight);
                     System.out.println("Astronaut's information has been changed!");
                     System.out.println("-----------------------------");
                     displayAstroInfo(AstroInfo);
+                    System.out.println("-----------------------------");
                     break;
                 case 8:
                     System.out.println("Please enter your next of kin:");
@@ -119,6 +130,7 @@ public class Spacecraft{
                     System.out.println("Astronaut's information has been changed!");
                     System.out.println("-----------------------------");
                     displayAstroInfo(AstroInfo);
+                    System.out.println("-----------------------------");
                     break;
                 case 9:
                     System.out.println("Please enter your status:");
@@ -131,6 +143,7 @@ public class Spacecraft{
                     System.out.println("Astronaut's information has been changed!");
                     System.out.println("-----------------------------");
                     displayAstroInfo(AstroInfo);
+                    System.out.println("-----------------------------");
                     break;
                 case 10:
                 do{
@@ -144,7 +157,9 @@ public class Spacecraft{
                         PreLaunchMenu(keyboard, AstroInfo);
                         break;
                     } else if (confirmChoice == 'n' || confirmChoice == 'N') {
+                        System.out.println("-----------------------------");
                         displayAstroInfo(AstroInfo);
+                        System.out.println("-----------------------------");
                         break;
                     } else{
                         System.out.println("This option is invalid. Please type 'Y' or 'N' to confirm or deny.");
@@ -176,7 +191,7 @@ public class Spacecraft{
             System.out.println("Email: " + AstroInfo.getEmail());
             System.out.println("Phone Number: " + AstroInfo.getPhoneNum());
             System.out.println("Pay Rate: " + AstroInfo.getPayRate());
-            System.out.println("Weight: " + AstroInfo.getAstroWeight());
+            System.out.println("Weight(in lbs): " + AstroInfo.getAstroWeight());
             System.out.println("Next of Kin: " + AstroInfo.getNexttoKin());
             System.out.println("Status: " + AstroInfo.getAstroStatus());
         }
@@ -187,12 +202,48 @@ public class Spacecraft{
 
             System.out.println("Welcome to the Launch Process menu!");
             String craftName = "Astraeus " + String.format("%02d", currentMissionNum);
-            System.out.println(" Spacecraft Name: " + craftName);
             System.out.println("Enter crew capacity: ");
             int crewCapacity = keyboard.nextInt();
             System.out.print("Enter fuel capacity (in liters): ");
             double fuelCapacity = keyboard.nextDouble();
 
             PreLaunch craft  = new PreLaunch(crewCapacity, fuelCapacity);
-    }
-    }
+            int choice;
+            do{
+                System.out.println("Available operations:");
+                System.out.println("1. Board Crew");
+                System.out.println("2. Refuel");
+                System.out.println("3. Launch");
+                System.out.println("4. Exit");
+                choice = keyboard.nextInt();
+                switch(choice){
+                    case 1:
+                        System.out.print("Enter the number of crew members to board: ");
+                        int memberCount = keyboard.nextInt();
+
+                        if(memberCount + craft.getCurrentCrew() <= crewCapacity){
+                            craft.boardCrew(memberCount);
+                            System.out.println("Crew boarded successfully. Current crew count: " + craft.getCurrentCrew());
+                        } else {
+                            System.out.println("Boarding failed. Insufficient capacity. Current crew count: " + craft.getCurrentCrew());
+                        }
+                        break;
+                    case 2:
+                        System.out.print("Enter the amount of fuel to refuel (in liters): ");
+                        double amount = keyboard.nextDouble();
+                        craft.refuel(amount);
+                        System.out.println("Spacecraft refueled. Current fuel level: " + craft.getCurrentFuel() + " liters");
+                    break;
+                    //case 3:
+                        //craft.launch();
+                       // break;
+                    case 4:
+                        PreLaunchMenu(keyboard, AstroInfo);
+                        break;
+                    default:
+                        System.out.println("This option is invalid. Please enter nnumbers 1-4 only.");
+                    }
+                    System.out.println();
+                } while (choice != 4);
+            }
+        }

@@ -39,7 +39,7 @@ public class PreLaunch {
 
         public void launch(String craftName, String destination){
             if(currentCrew == crewCapacity && currentFuel == fuelCapacity){
-                System.out.printf("Spacecraft '%s' successfully launched!", craftName);
+                System.out.printf("Spacecraft '%s' is ready to launch!", craftName);
                 currentFuel = 0.0;
             }
             else{

@@ -1,4 +1,7 @@
 package Test.CodeStuff;
+
+import java.util.Random;
+
 public class Astronaut {
     private String AstroName;
     public String Birthdate;
@@ -225,10 +228,42 @@ public class Astronaut {
     }
 
     public static boolean PayRateValidation(String PayRate){
+        if(PayRate.charAt(0) != '$'){
+            return false;
+        }
 
+        String amountWithoutDollar = PayRate.substring(1);
+
+        int dotCount = 0;
+    for (char c : amountWithoutDollar.toCharArray()) {
+        if (c == '.') {
+            dotCount++;
+        }
+    }
+    if (dotCount != 1) {
+        return false;
     }
 
+    String[] parts = amountWithoutDollar.split("\\.");
+    String dollars = parts[0];
+    String cents = parts[1];
+
+    return true;
+}
+
     public static boolean WeightValidation(String AstroWeight){
+        for(char weight: AstroWeight.toCharArray()){
+            if(!Character.isDigit(weight)){
+                return false;
+            }
+        }
+
+    int weight = Integer.parseInt(AstroWeight);
+
+        if(weight < 110 || weight > 210){
+            return false;
+        }
+        return true;
     }
 
     public static boolean NexttoKinValidation(String NexttoKin){
